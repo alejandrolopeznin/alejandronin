@@ -69,7 +69,7 @@
         },
         "nationality": { "@type": "Country", "name": "España" },
         "jobTitle": ["Compositor", "Productor musical", "Fagotista"],
-        "description": "Alejandro López Nin (Murcia, 2009) es un compositor contemporáneo, productor musical y fagotista español. Su catálogo incluye obras para piano solo, música de cámara, banda sinfónica y orquesta sinfónica. Entre sus obras destacan Romance n.º 1, Arelia, La Murciana, El Último Baile, Eulalia (marcha procesional para Santa Eulalia de Totana) y Aire de Sevilla para orquesta.",
+        "description": "Alejandro López Nin (Murcia, 2009) es un compositor contemporáneo, productor musical y fagotista español. Ha sido finalista en el Brahms International Music Competition con El Último Baile y finalista en los Ravel Awards con Romance n.º 1 para piano. Su catálogo incluye obras para piano solo, música de cámara, banda sinfónica y orquesta sinfónica: Romance n.º 1, Arelia, La Murciana (estrenada en el Conservatorio de Murcia), El Último Baile, Eulalia (marcha procesional para Santa Eulalia de Totana) y Aire de Sevilla para orquesta.",
         "email": "alejandronin.composer@gmail.com",
         "url": "https://alejandronin.com/",
         "sameAs": [],
@@ -84,6 +84,10 @@
           "Fagot",
           "Producción musical"
         ],
+        "award": [
+          "Finalista — Brahms International Music Competition (Categoría Compositor) con El Último Baile",
+          "Finalista — Ravel Awards (Categoría Compositor) con Romance n.º 1 para piano"
+        ],
         "hasOccupation": {
           "@type": "Occupation",
           "name": "Compositor de música contemporánea",
@@ -92,6 +96,38 @@
             "name": "Murcia",
             "addressCountry": "ES"
           }
+        }
+      },
+      {
+        "@type": "Event",
+        "name": "Brahms International Music Competition — Finalista",
+        "description": "Alejandro López Nin fue seleccionado como finalista en el Brahms International Music Competition en la categoría de Compositor con la obra El Último Baile, vals sinfónico para banda.",
+        "performer": { "@id": "https://alejandronin.com/#person" },
+        "about": {
+          "@type": "MusicComposition",
+          "name": "El Último Baile",
+          "composer": { "@id": "https://alejandronin.com/#person" }
+        },
+        "eventStatus": "https://schema.org/EventScheduled",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Brahms International Music Competition"
+        }
+      },
+      {
+        "@type": "Event",
+        "name": "Ravel Awards — Finalista",
+        "description": "Alejandro López Nin fue seleccionado como finalista en los Ravel Awards en la categoría de Compositor con la obra Romance n.º 1 para piano.",
+        "performer": { "@id": "https://alejandronin.com/#person" },
+        "about": {
+          "@type": "MusicComposition",
+          "name": "Romance n.º 1",
+          "composer": { "@id": "https://alejandronin.com/#person" }
+        },
+        "eventStatus": "https://schema.org/EventScheduled",
+        "organizer": {
+          "@type": "Organization",
+          "name": "Ravel Awards"
         }
       },
       {
@@ -182,6 +218,16 @@
         "musicArrangement": "Orquesta sinfónica"
       },
       {
+        "@type": "MusicComposition",
+        "name": "Alegazia",
+        "composer": { "@id": "https://alejandronin.com/#person" },
+        "dateCreated": "2026",
+        "description": "Nocturno para piano compuesto por Alejandro Nin. Narra una noche romántica y de pasión a través de una escritura densa y sensorialmente expresiva, con armonías ricas que evocan la intimidad de la noche y la intensidad de los sentimientos más profundos.",
+        "genre": "Música contemporánea para piano",
+        "musicArrangement": "Piano solo",
+        "musicCompositionSpokenWord": "Nocturno"
+      },
+      {
         "@type": "FAQPage",
         "mainEntity": [
           {
@@ -206,6 +252,22 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Entre sus obras más destacadas están Romance n.º 1 y Arelia (piano), La Murciana (música de cámara, estrenada en el Conservatorio de Murcia), El Último Baile (vals sinfónico para banda), Eulalia (marcha procesional para Santa Eulalia de Totana) y Aire de Sevilla (orquesta sinfónica)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Ha ganado Alejandro Nin algún premio o reconocimiento internacional?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Alejandro López Nin ha sido finalista en el Brahms International Music Competition en la categoría de Compositor con su obra El Último Baile (vals sinfónico para banda), y finalista en los Ravel Awards en la categoría de Compositor con Romance n.º 1 para piano. Ambos son concursos internacionales de alto prestigio en el ámbito de la composición musical."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What awards has Alejandro Nin won?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Alejandro López Nin has been selected as a finalist at the Brahms International Music Competition (Composer Category) with his symphonic waltz El Último Baile for wind band, and as a finalist at the Ravel Awards (Composer Category) with Romance No. 1 for piano."
             }
           }
         ]
@@ -274,7 +336,7 @@
       position: relative; z-index: 300;
     }
     nav.scrolled .nav-logo { color: var(--ink); text-shadow: none; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; margin: 0; padding: 0; }
     .nav-links a {
       font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
       text-transform: uppercase; color: rgba(255,255,255,0.6);
@@ -292,15 +354,20 @@
     @media (max-width: 768px) {
       .nav-toggle { display: flex; }
       .nav-links {
-        position: fixed; inset: 0; z-index: 250;
+        display: none;
+        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        width: 100vw; height: 100vh;
+        z-index: 250;
         flex-direction: column; align-items: center; justify-content: center;
-        gap: 2.5rem; background: rgba(10,10,15,0.97); backdrop-filter: blur(20px);
-        transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
-        pointer-events: none;
+        gap: 2.5rem; margin: 0; padding: 2rem; list-style: none;
+        background: rgba(10,10,15,0.97);
+        backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        opacity: 0; transition: opacity 0.3s ease;
       }
-      .nav-links.open { transform: translateX(0); pointer-events: all; }
-      .nav-links a { font-size: 1.1rem; letter-spacing: 0.16em; color: rgba(255,255,255,0.75); }
-      nav.scrolled .nav-links a { color: rgba(255,255,255,0.75); }
+      .nav-links.open { display: flex; opacity: 1; pointer-events: all; }
+      .nav-links a { font-size: 1.2rem; letter-spacing: 0.16em; color: rgba(255,255,255,0.8); padding: 0.5rem 1rem; display: block; }
+      .nav-links a:hover { color: var(--gold); }
+      nav.scrolled .nav-links a { color: rgba(255,255,255,0.8); }
     }
     #inicio { min-height: 100svh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
     #stars-canvas { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
@@ -375,14 +442,6 @@
     h2 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; letter-spacing: -0.01em; }
     #biografia { background: var(--white); position: relative; overflow: hidden; }
     #biografia::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(196,163,90,0.06) 0%, transparent 65%); pointer-events: none; }
-    .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
-    .bio-text p { font-size: 1.05rem; line-height: 1.9; color: var(--mid); margin-bottom: 1.5rem; }
-    .bio-text p strong { color: var(--ink); font-weight: 400; }
-    .bio-facts { display: flex; flex-direction: column; }
-    .fact-row { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--dust); transition: background 0.25s; }
-    .fact-row:hover { background: rgba(196,163,90,0.04); }
-    .fact-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); padding-top: 0.15rem; }
-    .fact-value { font-family: var(--serif); font-size: 1.1rem; font-weight: 300; color: var(--ink); }
     #catalogo { background: var(--paper); position: relative; }
     #catalogo::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.3; }
     .catalog-tabs { display: flex; margin-bottom: 3rem; border-bottom: 1px solid var(--dust); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
@@ -435,6 +494,84 @@
     .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.2); letter-spacing: 0.05em; }
     .footer-roles { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
     .gold-line { height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.25; }
+
+    /* ── AWARDS ── */
+    #reconocimientos { background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
+    #reconocimientos .section-label { color: var(--gold); }
+    #reconocimientos h2 { color: var(--white); }
+    #reconocimientos .section-header { border-bottom-color: rgba(255,255,255,0.08); }
+    #reconocimientos::before {
+      content: ''; position: absolute; bottom: -150px; right: -150px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,163,90,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .awards-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      position: relative; z-index: 1;
+    }
+    .award-card {
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      position: relative; overflow: hidden;
+      transition: border-color 0.4s, transform 0.4s;
+    }
+    .award-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(196,163,90,0.05) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .award-card:hover { border-color: rgba(196,163,90,0.35); transform: translateY(-3px); }
+    .award-card:hover::before { opacity: 1; }
+    /* Top gold accent bar */
+    .award-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .award-card:hover::after { opacity: 1; }
+
+    .award-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding: 0.3rem 0.9rem;
+      border: 1px solid rgba(196,163,90,0.4);
+      font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .award-badge svg { width: 12px; height: 12px; fill: var(--gold); flex-shrink: 0; }
+
+    .award-competition {
+      font-family: var(--serif); font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 300; color: var(--white); line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+    .award-category {
+      font-size: 0.68rem; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+    }
+    .award-work-label {
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 0.4rem;
+    }
+    .award-work-name {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+      color: rgba(255,255,255,0.85); font-style: italic;
+    }
+    .award-divider {
+      height: 1px; margin: 1.5rem 0;
+      background: linear-gradient(to right, rgba(196,163,90,0.3), transparent);
+    }
+    .award-desc {
+      font-size: 0.85rem; color: rgba(255,255,255,0.38); line-height: 1.8;
+    }
+
+    /* Mobile awards */
+    @media (max-width: 768px) {
+      .awards-grid { grid-template-columns: 1fr; }
+      .award-card:hover { transform: none; }
+    }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1); }
     .reveal.visible { opacity: 1; transform: none; }
     .reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.8s cubic-bezier(0.4,0,0.2,1), transform 0.8s cubic-bezier(0.4,0,0.2,1); }
@@ -447,9 +584,6 @@
       .hero-location { display: none; }
       h1 { font-size: clamp(3rem, 14vw, 5rem); }
       .hero-subtitle { max-width: 100%; }
-      .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .bio-text p { font-size: 0.95rem; }
-      .fact-row { grid-template-columns: 1fr 1.5fr; }
       .work-card { grid-template-columns: auto 1fr; gap: 1rem; }
       .work-year { min-width: 2.8rem; font-size: 1.2rem; }
       .work-duration { display: none; }
@@ -487,6 +621,7 @@
       <li><a href="#inicio" data-i18n="nav_inicio">Inicio</a></li>
       <li><a href="#biografia" data-i18n="nav_bio">Biograf&#237;a</a></li>
       <li><a href="#catalogo" data-i18n="nav_catalogo">Cat&#225;logo</a></li>
+      <li><a href="#reconocimientos" data-i18n="nav_awards">Reconocimientos</a></li>
       <li><a href="#contacto" data-i18n="nav_contacto">Contacto</a></li>
     </ul>
   </nav>
@@ -513,19 +648,13 @@
       <span class="section-label" data-i18n="bio_label">Sobre el autor</span>
       <h2 data-i18n="bio_title">Biograf&#237;a</h2>
     </div>
-    <div class="bio-grid">
-      <div class="bio-text reveal-left">
-        <p data-i18n="bio_p1"><strong>Alejandro L&#243;pez Nin</strong> naci&#243; en Murcia en 2009. Compositor contempor&#225;neo, productor musical y fagotista, ha desarrollado desde muy joven un lenguaje propio que tiende puentes entre la herencia del romanticismo y la sensibilidad musical del presente.</p>
-        <p data-i18n="bio_p2">Su obra abarca m&#250;sica para piano, c&#225;mara y banda sinf&#243;nica. En cada proyecto, Alejandro explora la capacidad narrativa de la m&#250;sica: la forma en que una melod&#237;a puede contar una historia, evocar una imagen o sostener una emoci&#243;n sin necesidad de palabras.</p>
-        <p data-i18n="bio_p3">Entre sus trabajos m&#225;s destacados se encuentran <em>Romance n.&#186; 1</em>, <em>Arelia</em>, <em>La Murciana</em> &#8212;estrenada en el Conservatorio de M&#250;sica de Murcia&#8212; y el vals sinf&#243;nico <em>El &#218;ltimo Baile</em>, para banda.</p>
-      </div>
-      <div class="bio-facts reveal">
-        <div class="fact-row"><span class="fact-label" data-i18n="fact_birth_l">Nacimiento</span><span class="fact-value" data-i18n="fact_birth_v">2009, Murcia, Espa&#241;a</span></div>
-        <div class="fact-row"><span class="fact-label" data-i18n="fact_disc_l">Disciplinas</span><span class="fact-value" data-i18n="fact_disc_v">Composici&#243;n &middot; Producci&#243;n &middot; Fagot</span></div>
-        <div class="fact-row"><span class="fact-label" data-i18n="fact_genre_l">G&#233;nero</span><span class="fact-value" data-i18n="fact_genre_v">M&#250;sica contempor&#225;nea</span></div>
-        <div class="fact-row"><span class="fact-label" data-i18n="fact_edu_l">Formaci&#243;n</span><span class="fact-value" data-i18n="fact_edu_v">Conservatorio de M&#250;sica de Murcia</span></div>
-        <div class="fact-row"><span class="fact-label" data-i18n="fact_contact_l">Contacto</span><span class="fact-value">alejandronin.composer@gmail.com</span></div>
-      </div>
+    <div class="bio-prose">
+      <p class="reveal" data-i18n="bio_p1"><strong>Alejandro L&#243;pez Nin</strong>, art&#237;sticamente conocido como <strong>Alejandro Nin</strong> (Murcia, Espa&#241;a, 2009), es un compositor contempor&#225;neo, fagotista y productor musical espa&#241;ol. Su actividad art&#237;stica se sit&#250;a en la intersecci&#243;n entre la creaci&#243;n musical, la interpretaci&#243;n instrumental y la producci&#243;n sonora, integrando influencias de la m&#250;sica cl&#225;sica, el flamenco y las nuevas tecnolog&#237;as aplicadas a la composici&#243;n.</p>
+      <p class="reveal" data-i18n="bio_p2">Comenz&#243; su formaci&#243;n musical a los once a&#241;os estudiando fagot en el Conservatorio de M&#250;sica de Murcia bajo la tutela de <strong>Juan Torres Corona</strong>. Su experiencia como int&#233;rprete despert&#243; pronto un profundo inter&#233;s por la composici&#243;n, disciplina en la que comenz&#243; a desarrollar una voz propia caracterizada por la b&#250;squeda de la expresividad, el color t&#237;mbrico y la construcci&#243;n de narrativas musicales con una marcada dimensi&#243;n emocional.</p>
+      <p class="reveal" data-i18n="bio_p3">Durante sus estudios en el <strong>Conservatori Professional de M&#250;sica de Menorca</strong>, y bajo la orientaci&#243;n del compositor y profesor de armon&#237;a <strong>Enric Rodr&#237;guez-Llorens</strong>, compuso su primera obra para banda sinf&#243;nica, <em>El &#218;ltimo Baile</em>, una partitura que marc&#243; el inicio de su cat&#225;logo compositivo y de su inter&#233;s por la escritura para grandes conjuntos.</p>
+      <p class="reveal" data-i18n="bio_p4">Su producci&#243;n art&#237;stica abarca diferentes formaciones y lenguajes. Entre sus obras destacan las piezas para piano <em>Arelia</em>, <em>Romance n.&#186; 1</em> y el nocturno <em>Alegazia</em>, as&#237; como <em>La Murciana</em>, obra para conjunto de oboes y fagotes estrenada en el Conservatorio de Murcia. Estas composiciones reflejan una b&#250;squeda constante de identidad sonora y un inter&#233;s por combinar la riqueza t&#237;mbrica de los instrumentos con una escritura accesible y expresiva.</p>
+      <p class="reveal" data-i18n="bio_p5">Paralelamente a su actividad como compositor, desarrolla proyectos de producci&#243;n musical que integran recursos ac&#250;sticos y digitales, explorando nuevas formas de creaci&#243;n y dise&#241;o sonoro. Su formaci&#243;n como fagotista y su vinculaci&#243;n con el flamenco a trav&#233;s de la guitarra enriquecen un lenguaje musical personal que tiende puentes entre tradici&#243;n y contemporaneidad.</p>
+      <p class="reveal" data-i18n="bio_p6">Actualmente contin&#250;a ampliando su cat&#225;logo de composiciones y desarrollando nuevos proyectos de composici&#243;n, interpretaci&#243;n y producci&#243;n musical, consolidando una identidad art&#237;stica propia dentro de la nueva generaci&#243;n de compositores espa&#241;oles.</p>
     </div>
   </section>
   <div class="gold-line"></div>
@@ -558,6 +687,15 @@
           <div class="work-desc" data-i18n="arelia_desc">Un vals de inspiraci&#243;n plenamente rom&#225;ntica que rinde homenaje a la tradici&#243;n pian&#237;stica del siglo XIX. Melod&#237;as elegantes y un lenguaje arm&#243;nico expresivo evocan la atm&#243;sfera de los grandes salones rom&#225;nticos.</div>
         </div>
         <div class="work-duration">&#8776; 2:40 min</div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-year">2026</div>
+        <div class="work-info">
+          <div class="work-title">Alegazia</div>
+          <div class="work-meta" data-i18n="alegazia_meta">Nocturno para piano</div>
+          <div class="work-desc" data-i18n="alegazia_desc">Un nocturno que narra una noche rom&#225;ntica y de pasi&#243;n. A trav&#233;s de una escritura densa y sensualmante expresiva, la pieza despliega un mundo sonoro nocturno donde la melod&#237;a fluye libre, envuelta en armon&#237;as ricas y una textura que evoca la intimidad de la noche, el deseo y la intensidad de los sentimientos m&#225;s profundos.</div>
+        </div>
+        <div class="work-duration">&#8776; 4:00 min</div>
       </div>
     </div>
     <div class="catalog-panel" id="tab-camara">
@@ -604,6 +742,47 @@
     </div>
   </section>
   <div class="gold-line"></div>
+
+  <!-- ── RECONOCIMIENTOS ── -->
+  <section id="reconocimientos">
+    <div class="section-header reveal">
+      <span class="section-label" data-i18n="aw_label">Palmarés</span>
+      <h2 data-i18n="aw_title">Reconocimientos</h2>
+    </div>
+    <div class="awards-grid">
+
+      <div class="award-card reveal">
+        <div class="award-badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+          <span data-i18n="aw_finalist">Finalista</span>
+        </div>
+        <div class="award-competition" data-i18n="aw1_comp">Brahms International Music Competition</div>
+        <div class="award-category" data-i18n="aw1_cat">Categoría Compositor</div>
+        <div class="award-divider"></div>
+        <div class="award-work-label" data-i18n="aw_work_label">Obra presentada</div>
+        <div class="award-work-name">El Último Baile</div>
+        <div class="award-divider"></div>
+        <div class="award-desc" data-i18n="aw1_desc">Reconocimiento internacional como finalista con el vals sinfónico para banda <em>El Último Baile</em>, compitiendo entre compositores de todo el mundo en uno de los certámenes más prestigiosos dedicados al legado de Johannes Brahms.</div>
+      </div>
+
+      <div class="award-card reveal">
+        <div class="award-badge">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+          <span data-i18n="aw_finalist">Finalista</span>
+        </div>
+        <div class="award-competition" data-i18n="aw2_comp">Ravel Awards</div>
+        <div class="award-category" data-i18n="aw2_cat">Categoría Compositor</div>
+        <div class="award-divider"></div>
+        <div class="award-work-label" data-i18n="aw_work_label">Obra presentada</div>
+        <div class="award-work-name">Romance n.º 1 <span style="font-style:normal;font-size:0.85em;color:rgba(255,255,255,0.45)">— piano</span></div>
+        <div class="award-divider"></div>
+        <div class="award-desc" data-i18n="aw2_desc">Seleccionado como finalista en los Ravel Awards con <em>Romance n.º 1</em> para piano, galardones internacionales que celebran la excelencia compositiva en la tradición de Maurice Ravel y la música para piano del siglo XX y XXI.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
   <section id="contacto">
     <canvas id="contact-stars"></canvas>
     <div class="section-header reveal">
@@ -641,19 +820,24 @@
     ════════════════════════════════════════ */
     var T = {
       es: {
-        nav_inicio:"Inicio", nav_bio:"Biograf\u00eda", nav_catalogo:"Cat\u00e1logo", nav_contacto:"Contacto",
+        nav_inicio:"Inicio", nav_bio:"Biograf\u00eda", nav_catalogo:"Cat\u00e1logo", nav_awards:"Reconocimientos", nav_contacto:"Contacto",
+        aw_label:"Palmar\u00e9s", aw_title:"Reconocimientos", aw_finalist:"Finalista", aw_work_label:"Obra presentada",
+        aw1_comp:"Brahms International Music Competition", aw1_cat:"Categor\u00eda Compositor",
+        aw1_desc:"Reconocimiento internacional como finalista con el vals sinf\u00f3nico para banda <em>El \u00daltimo Baile</em>, compitiendo entre compositores de todo el mundo en uno de los certámenes más prestigiosos dedicados al legado de Johannes Brahms.",
+        aw2_comp:"Ravel Awards", aw2_cat:"Categor\u00eda Compositor",
+        aw2_desc:"Seleccionado como finalista en los Ravel Awards con <em>Romance n.\u00ba 1</em> para piano, galardones internacionales que celebran la excelencia compositiva en la tradici\u00f3n de Maurice Ravel y la m\u00fasica para piano del siglo XX y XXI.",
         hero_eyebrow:"Compositor contempor\u00e1neo \u00b7 Murcia, Espa\u00f1a",
         hero_sub:"Compositor, productor musical y fagotista espa\u00f1ol. Su obra explora la relaci\u00f3n entre tradici\u00f3n, narrativa y nuevas sonoridades.",
         hero_cta1:"Ver cat\u00e1logo", hero_cta2:"Contacto", hero_loc:"Murcia \u00b7 Espa\u00f1a",
         bio_label:"Sobre el autor", bio_title:"Biograf\u00eda",
-        bio_p1:"<strong>Alejandro L\u00f3pez Nin</strong> naci\u00f3 en Murcia en 2009. Compositor contempor\u00e1neo, productor musical y fagotista, ha desarrollado desde muy joven un lenguaje propio que tiende puentes entre la herencia del romanticismo y la sensibilidad musical del presente.",
-        bio_p2:"Su obra abarca m\u00fasica para piano, c\u00e1mara y banda sinf\u00f3nica. En cada proyecto, Alejandro explora la capacidad narrativa de la m\u00fasica: la forma en que una melod\u00eda puede contar una historia, evocar una imagen o sostener una emoci\u00f3n sin necesidad de palabras.",
-        bio_p3:"Entre sus trabajos m\u00e1s destacados se encuentran <em>Romance n.\u00ba 1</em>, <em>Arelia</em>, <em>La Murciana</em> \u2014estrenada en el Conservatorio de M\u00fasica de Murcia\u2014 y el vals sinf\u00f3nico <em>El \u00daltimo Baile</em>, para banda.",
-        fact_birth_l:"Nacimiento", fact_birth_v:"2009, Murcia, Espa\u00f1a",
-        fact_disc_l:"Disciplinas", fact_disc_v:"Composici\u00f3n \u00b7 Producci\u00f3n \u00b7 Fagot",
-        fact_genre_l:"G\u00e9nero", fact_genre_v:"M\u00fasica contempor\u00e1nea",
-        fact_edu_l:"Formaci\u00f3n", fact_edu_v:"Conservatorio de M\u00fasica de Murcia",
-        fact_contact_l:"Contacto",
+        bio_p1:"<strong>Alejandro L\u00f3pez Nin</strong>, art\u00edsticamente conocido como <strong>Alejandro Nin</strong> (Murcia, Espa\u00f1a, 2009), es un compositor contempor\u00e1neo, fagotista y productor musical espa\u00f1ol. Su actividad art\u00edstica se sit\u00faa en la intersecci\u00f3n entre la creaci\u00f3n musical, la interpretaci\u00f3n instrumental y la producci\u00f3n sonora, integrando influencias de la m\u00fasica cl\u00e1sica, el flamenco y las nuevas tecnolog\u00edas aplicadas a la composici\u00f3n.",
+        bio_p2:"Comenz\u00f3 su formaci\u00f3n musical a los once a\u00f1os estudiando fagot en el Conservatorio de M\u00fasica de Murcia bajo la tutela de <strong>Juan Torres Corona</strong>. Su experiencia como int\u00e9rprete despert\u00f3 pronto un profundo inter\u00e9s por la composici\u00f3n, disciplina en la que comenz\u00f3 a desarrollar una voz propia caracterizada por la b\u00fasqueda de la expresividad, el color t\u00edmbrico y la construcci\u00f3n de narrativas musicales con una marcada dimensi\u00f3n emocional.",
+        bio_p3:"Durante sus estudios en el <strong>Conservatori Professional de M\u00fasica de Menorca</strong>, y bajo la orientaci\u00f3n del compositor y profesor de armon\u00eda <strong>Enric Rodr\u00edguez-Llorens</strong>, compuso su primera obra para banda sinf\u00f3nica, <em>El \u00daltimo Baile</em>, partitura que marc\u00f3 el inicio de su cat\u00e1logo compositivo.",
+        bio_p4:"Su producci\u00f3n art\u00edstica abarca diferentes formaciones y lenguajes. Entre sus obras destacan las piezas para piano <em>Arelia</em>, <em>Romance n.\u00ba 1</em> y el nocturno <em>Alegazia</em>, as\u00ed como <em>La Murciana</em>, para conjunto de oboes y fagotes estrenada en el Conservatorio de Murcia.",
+        bio_p5:"Paralelamente a su actividad como compositor, desarrolla proyectos de producci\u00f3n musical que integran recursos ac\u00fasticos y digitales. Su formaci\u00f3n como fagotista y su vinculaci\u00f3n con el flamenco a trav\u00e9s de la guitarra enriquecen un lenguaje musical personal que tiende puentes entre tradici\u00f3n y contemporaneidad.",
+        bio_p6:"Actualmente contin\u00faa ampliando su cat\u00e1logo y consolidando una identidad art\u00edstica propia dentro de la nueva generaci\u00f3n de compositores espa\u00f1oles.",
+        alegazia_meta:"Nocturno para piano",
+        alegazia_desc:"Un nocturno que narra una noche rom\u00e1ntica y de pasi\u00f3n. La escritura densa y sensorialmente expresiva despliega un mundo sonoro nocturno donde la melod\u00eda fluye libre, envuelta en armon\u00edas ricas y una textura que evoca la intimidad de la noche y la intensidad de los sentimientos m\u00e1s profundos.",
         cat_label:"Obras", cat_title:"Cat\u00e1logo",
         tab_piano:"Piano", tab_camara:"M\u00fasica de c\u00e1mara", tab_banda:"Obras para banda", tab_orch:"Orquesta sinf\u00f3nica",
         romance_meta:"Piano solo", romance_desc:"Una obra de car\u00e1cter rom\u00e1ntico que combina la elegancia del vals con melod\u00edas cant\u00e1biles de gran expresividad. Desarrolla una atm\u00f3sfera \u00edntima que evoca sentimientos de amor, nostalgia y a\u00f1oranza.",
@@ -672,19 +856,24 @@
         footer_roles:"Compositor \u00b7 Productor musical \u00b7 Fagotista"
       },
       en: {
-        nav_inicio:"Home", nav_bio:"Biography", nav_catalogo:"Catalogue", nav_contacto:"Contact",
+        nav_inicio:"Home", nav_bio:"Biography", nav_catalogo:"Catalogue", nav_awards:"Awards", nav_contacto:"Contact",
+        aw_label:"Honours", aw_title:"Recognition", aw_finalist:"Finalist", aw_work_label:"Submitted work",
+        aw1_comp:"Brahms International Music Competition", aw1_cat:"Composer Category",
+        aw1_desc:"International recognition as a finalist with the symphonic waltz for wind band <em>El \u00daltimo Baile</em>, competing among composers from around the world at one of the most prestigious competitions dedicated to the legacy of Johannes Brahms.",
+        aw2_comp:"Ravel Awards", aw2_cat:"Composer Category",
+        aw2_desc:"Selected as a finalist at the Ravel Awards with <em>Romance No.\u00a01</em> for piano — international awards celebrating compositional excellence in the tradition of Maurice Ravel and piano music of the 20th and 21st centuries.",
         hero_eyebrow:"Contemporary Composer \u00b7 Murcia, Spain",
         hero_sub:"Spanish composer, music producer and bassoonist. His work explores the relationship between tradition, narrative and new sonorities.",
         hero_cta1:"View catalogue", hero_cta2:"Contact", hero_loc:"Murcia \u00b7 Spain",
         bio_label:"About the artist", bio_title:"Biography",
-        bio_p1:"<strong>Alejandro L\u00f3pez Nin</strong> was born in Murcia in 2009. A contemporary composer, music producer and bassoonist, he has developed from an early age a distinctive musical language bridging the Romantic heritage with present-day sensibilities.",
-        bio_p2:"His output spans music for piano, chamber ensemble and wind band. In every project, Alejandro explores the narrative power of music \u2014 the way a melody can tell a story, evoke an image or sustain an emotion without the need for words.",
-        bio_p3:"Among his most notable works are <em>Romance No.\u00a01</em>, <em>Arelia</em>, <em>La Murciana</em> \u2014 premiered at the Murcia Conservatoire \u2014 and the symphonic waltz <em>El \u00daltimo Baile</em>, for wind band.",
-        fact_birth_l:"Born", fact_birth_v:"2009, Murcia, Spain",
-        fact_disc_l:"Disciplines", fact_disc_v:"Composition \u00b7 Production \u00b7 Bassoon",
-        fact_genre_l:"Genre", fact_genre_v:"Contemporary music",
-        fact_edu_l:"Education", fact_edu_v:"Murcia Conservatoire of Music",
-        fact_contact_l:"Contact",
+        bio_p1:"<strong>Alejandro L\u00f3pez Nin</strong>, known artistically as <strong>Alejandro Nin</strong> (Murcia, Spain, 2009), is a Spanish contemporary composer, bassoonist and music producer. His artistic activity stands at the intersection of musical creation, instrumental performance and sound production, drawing on influences from classical music, flamenco and new technologies applied to composition.",
+        bio_p2:"He began his musical training at the age of eleven studying bassoon at the Murcia Conservatoire under the tutelage of <strong>Juan Torres Corona</strong>. His experience as a performer soon awoke a deep interest in composition, a discipline in which he began to develop his own voice, characterised by the pursuit of expressiveness, timbral colour and the construction of musical narratives with a marked emotional dimension.",
+        bio_p3:"During his studies at the <strong>Conservatori Professional de M\u00fasica de Menorca</strong>, under the guidance of composer and harmony teacher <strong>Enric Rodr\u00edguez-Llorens</strong>, he composed his first work for wind band, <em>El \u00daltimo Baile</em>, a score that marked the beginning of his compositional catalogue.",
+        bio_p4:"His artistic output spans different ensembles and languages. Among his works are the piano pieces <em>Arelia</em>, <em>Romance No.\u00a01</em> and the nocturne <em>Alegazia</em>, as well as <em>La Murciana</em>, for oboe and bassoon ensemble, premiered at the Murcia Conservatoire.",
+        bio_p5:"Alongside his work as a composer, he develops music production projects integrating acoustic and digital resources. His training as a bassoonist and his connection with flamenco through the guitar enrich a personal musical language that bridges tradition and contemporary sensibility.",
+        bio_p6:"He continues to expand his catalogue and consolidate a distinctive artistic identity within the new generation of Spanish composers.",
+        alegazia_meta:"Nocturne for piano",
+        alegazia_desc:"A nocturne narrating a romantic and passionate night. Through dense, sensorially expressive writing, the piece unfolds a nocturnal sound world where the melody flows freely, wrapped in rich harmonies and a texture evoking the intimacy of night and the intensity of the deepest feelings.",
         cat_label:"Works", cat_title:"Catalogue",
         tab_piano:"Piano", tab_camara:"Chamber music", tab_banda:"Band works", tab_orch:"Symphony orchestra",
         romance_meta:"Piano solo", romance_desc:"A romantic work combining the elegance of the waltz with lyrical cantabile melodies of great expressiveness. It develops an intimate atmosphere evoking love, nostalgia and longing.",
@@ -703,19 +892,24 @@
         footer_roles:"Composer \u00b7 Music producer \u00b7 Bassoonist"
       },
       fr: {
-        nav_inicio:"Accueil", nav_bio:"Biographie", nav_catalogo:"Catalogue", nav_contacto:"Contact",
+        nav_inicio:"Accueil", nav_bio:"Biographie", nav_catalogo:"Catalogue", nav_awards:"R\u00e9compenses", nav_contacto:"Contact",
+        aw_label:"Palmar\u00e8s", aw_title:"Distinctions", aw_finalist:"Finaliste", aw_work_label:"Œuvre pr\u00e9sent\u00e9e",
+        aw1_comp:"Brahms International Music Competition", aw1_cat:"Cat\u00e9gorie Compositeur",
+        aw1_desc:"Reconnaissance internationale en tant que finaliste avec la valse symphonique pour orchestre d\u2019harmonie <em>El \u00daltimo Baile</em>, parmi des compositeurs du monde entier.",
+        aw2_comp:"Ravel Awards", aw2_cat:"Cat\u00e9gorie Compositeur",
+        aw2_desc:"S\u00e9lectionn\u00e9 comme finaliste aux Ravel Awards avec <em>Romance n\u00b0\u00a01</em> pour piano, r\u00e9compenses internationales c\u00e9l\u00e9brant l\u2019excellence compositionnelle dans la tradition de Maurice Ravel.",
         hero_eyebrow:"Compositeur contemporain \u00b7 Murcie, Espagne",
         hero_sub:"Compositeur, producteur musical et bassoniste espagnol. Son \u0153uvre explore le rapport entre tradition, narration et nouvelles sonorit\u00e9s.",
         hero_cta1:"Voir le catalogue", hero_cta2:"Contact", hero_loc:"Murcie \u00b7 Espagne",
         bio_label:"Sur l\u2019artiste", bio_title:"Biographie",
-        bio_p1:"<strong>Alejandro L\u00f3pez Nin</strong> est n\u00e9 \u00e0 Murcie en 2009. Compositeur contemporain, producteur musical et bassoniste, il a d\u00e9velopp\u00e9 d\u00e8s son jeune \u00e2ge un langage propre qui fait le pont entre l\u2019h\u00e9ritage romantique et la sensibilit\u00e9 musicale d\u2019aujourd\u2019hui.",
-        bio_p2:"Son \u0153uvre englobe de la musique pour piano, musique de chambre et orchestre d\u2019harmonie. Dans chaque projet, Alejandro explore la capacit\u00e9 narrative de la musique.",
-        bio_p3:"Parmi ses \u0153uvres les plus remarquables figurent <em>Romance n\u00b0\u00a01</em>, <em>Arelia</em>, <em>La Murciana</em> \u2014 cr\u00e9\u00e9e au Conservatoire de Musique de Murcie \u2014 et la valse symphonique <em>El \u00daltimo Baile</em>.",
-        fact_birth_l:"Naissance", fact_birth_v:"2009, Murcie, Espagne",
-        fact_disc_l:"Disciplines", fact_disc_v:"Composition \u00b7 Production \u00b7 Basson",
-        fact_genre_l:"Genre", fact_genre_v:"Musique contemporaine",
-        fact_edu_l:"Formation", fact_edu_v:"Conservatoire de Musique de Murcie",
-        fact_contact_l:"Contact",
+        bio_p1:"<strong>Alejandro L\u00f3pez Nin</strong>, connu artistiquement sous le nom d\u2019<strong>Alejandro Nin</strong> (Murcie, Espagne, 2009), est un compositeur contemporain, bassoniste et producteur musical espagnol. Son activit\u00e9 artistique se situe \u00e0 l\u2019intersection de la cr\u00e9ation musicale, de l\u2019interpr\u00e9tation instrumentale et de la production sonore, int\u00e9grant des influences de la musique classique, du flamenco et des nouvelles technologies.",
+        bio_p2:"Il d\u00e9bute sa formation musicale \u00e0 onze ans en \u00e9tudiant le basson au Conservatoire de Musique de Murcie sous la tutelle de <strong>Juan Torres Corona</strong>. Son exp\u00e9rience d\u2019interpr\u00e8te \u00e9veille rapidement un profond int\u00e9r\u00eat pour la composition.",
+        bio_p3:"Durant ses \u00e9tudes au <strong>Conservatori Professional de M\u00fasica de Menorca</strong>, sous l\u2019orientation d\u2019<strong>Enric Rodr\u00edguez-Llorens</strong>, il compose <em>El \u00daltimo Baile</em>, sa premi\u00e8re \u0153uvre pour orchestre d\u2019harmonie.",
+        bio_p4:"Sa production englobe diff\u00e9rentes formations. Parmi ses \u0153uvres figurent les pi\u00e8ces pour piano <em>Arelia</em>, <em>Romance n\u00b0\u00a01</em> et le nocturne <em>Alegazia</em>, ainsi que <em>La Murciana</em> pour ensemble de hautbois et bassons.",
+        bio_p5:"Il d\u00e9veloppe \u00e9galement des projets de production musicale int\u00e9grant ressources acoustiques et num\u00e9riques, enrichis par sa formation de bassoniste et sa relation avec le flamenco.",
+        bio_p6:"Il continue d\u2019\u00e9largir son catalogue en consolidant une identit\u00e9 artistique propre au sein de la nouvelle g\u00e9n\u00e9ration de compositeurs espagnols.",
+        alegazia_meta:"Nocturne pour piano",
+        alegazia_desc:"Un nocturne narrant une nuit romantique et passionn\u00e9e. L\u2019\u00e9criture dense et sensuellement expressive d\u00e9ploie un monde sonore nocturne o\u00f9 la m\u00e9lodie coule librement, envelopp\u00e9e d\u2019harmonies riches \u00e9voquant l\u2019intimit\u00e9 de la nuit et l\u2019intensit\u00e9 des sentiments les plus profonds.",
         cat_label:"\u0152uvres", cat_title:"Catalogue",
         tab_piano:"Piano", tab_camara:"Musique de chambre", tab_banda:"Orchestre d\u2019harmonie", tab_orch:"Orchestre symphonique",
         romance_meta:"Piano seul", romance_desc:"Une \u0153uvre romantique associant l\u2019\u00e9l\u00e9gance de la valse \u00e0 des m\u00e9lodies cantabile d\u2019une grande expressivit\u00e9, \u00e9voquant l\u2019amour, la nostalgie et la m\u00e9lancolie.",
@@ -734,19 +928,24 @@
         footer_roles:"Compositeur \u00b7 Producteur musical \u00b7 Bassoniste"
       },
       de: {
-        nav_inicio:"Start", nav_bio:"Biografie", nav_catalogo:"Katalog", nav_contacto:"Kontakt",
+        nav_inicio:"Start", nav_bio:"Biografie", nav_catalogo:"Katalog", nav_awards:"Auszeichnungen", nav_contacto:"Kontakt",
+        aw_label:"Ehrungen", aw_title:"Auszeichnungen", aw_finalist:"Finalist", aw_work_label:"Eingereichte Komposition",
+        aw1_comp:"Brahms International Music Competition", aw1_cat:"Kategorie Komponist",
+        aw1_desc:"Internationale Anerkennung als Finalist mit dem sinfonischen Walzer f\u00fcr Blasorchester <em>El \u00daltimo Baile</em>, im Wettbewerb mit Komponisten aus aller Welt.",
+        aw2_comp:"Ravel Awards", aw2_cat:"Kategorie Komponist",
+        aw2_desc:"Als Finalist bei den Ravel Awards mit <em>Romance Nr.\u00a01</em> f\u00fcr Klavier ausgew\u00e4hlt, einem internationalen Preis f\u00fcr kompositorische Exzellenz in der Tradition von Maurice Ravel.",
         hero_eyebrow:"Zeitgen\u00f6ssischer Komponist \u00b7 Murcia, Spanien",
         hero_sub:"Spanischer Komponist, Musikproduzent und Fagottist. Sein Werk erforscht das Verh\u00e4ltnis zwischen Tradition, Narration und neuen Klangwelten.",
         hero_cta1:"Katalog ansehen", hero_cta2:"Kontakt", hero_loc:"Murcia \u00b7 Spanien",
         bio_label:"\u00dcber den K\u00fcnstler", bio_title:"Biografie",
-        bio_p1:"<strong>Alejandro L\u00f3pez Nin</strong> wurde 2009 in Murcia geboren. Als zeitgen\u00f6ssischer Komponist, Musikproduzent und Fagottist hat er schon fr\u00fch eine eigene Sprache entwickelt, die das romantische Erbe mit der Sensibilit\u00e4t der Gegenwart verbindet.",
-        bio_p2:"Sein Schaffen umfasst Musik f\u00fcr Klavier, Kammermusik und Blasorchester. In jedem Projekt erkundet er die narrative Kraft der Musik.",
-        bio_p3:"Zu seinen bedeutendsten Werken z\u00e4hlen <em>Romance Nr.\u00a01</em>, <em>Arelia</em>, <em>La Murciana</em> und der sinfonische Walzer <em>El \u00daltimo Baile</em>.",
-        fact_birth_l:"Geboren", fact_birth_v:"2009, Murcia, Spanien",
-        fact_disc_l:"Disziplinen", fact_disc_v:"Komposition \u00b7 Produktion \u00b7 Fagott",
-        fact_genre_l:"Genre", fact_genre_v:"Zeitgen\u00f6ssische Musik",
-        fact_edu_l:"Ausbildung", fact_edu_v:"Musikkonservatorium Murcia",
-        fact_contact_l:"Kontakt",
+        bio_p1:"<strong>Alejandro L\u00f3pez Nin</strong>, k\u00fcnstlerisch bekannt als <strong>Alejandro Nin</strong> (Murcia, Spanien, 2009), ist ein spanischer zeitgen\u00f6ssischer Komponist, Fagottist und Musikproduzent. Seine k\u00fcnstlerische T\u00e4tigkeit liegt an der Schnittstelle von musikalischer Sch\u00f6pfung, instrumentaler Interpretation und Klangproduktion, mit Einfl\u00fcssen aus klassischer Musik, Flamenco und neuen Technologien.",
+        bio_p2:"Er begann seine musikalische Ausbildung mit elf Jahren, indem er Fagott am Musikkonservatorium Murcia unter der Leitung von <strong>Juan Torres Corona</strong> studierte. Seine Erfahrung als Interpret weckte bald ein tiefes Interesse an der Komposition.",
+        bio_p3:"W\u00e4hrend seiner Studien am <strong>Conservatori Professional de M\u00fasica de Menorca</strong>, unter der Anleitung von <strong>Enric Rodr\u00edguez-Llorens</strong>, komponierte er <em>El \u00daltimo Baile</em>, sein erstes Werk f\u00fcr Blasorchester.",
+        bio_p4:"Zu seinen Werken z\u00e4hlen die Klavierst\u00fccke <em>Arelia</em>, <em>Romance Nr.\u00a01</em> und das Nocturne <em>Alegazia</em> sowie <em>La Murciana</em> f\u00fcr Oboen- und Fagottensemble.",
+        bio_p5:"Neben seiner Komponistent\u00e4tigkeit entwickelt er Musikproduktionsprojekte, die akustische und digitale Ressourcen verbinden. Seine Fagottausbildung und seine Verbindung zum Flamenco bereichern seine pers\u00f6nliche Musiksprache.",
+        bio_p6:"Er setzt seine kompositorische Laufbahn fort und festigt seine k\u00fcnstlerische Identit\u00e4t innerhalb der neuen Generation spanischer Komponisten.",
+        alegazia_meta:"Nocturne f\u00fcr Klavier",
+        alegazia_desc:"Ein Nocturne, das eine romantische und leidenschaftliche Nacht erz\u00e4hlt. Die dichte, sinnlich ausdrucksstarke Schreibweise entfaltet eine n\u00e4chtliche Klangwelt, in der die Melodie frei flie\u00dft, eingh\u00fcllt in reiche Harmonien, die die Intimt\u00e4t der Nacht und die Intensit\u00e4t tiefster Gef\u00fchle evozieren.",
         cat_label:"Werke", cat_title:"Katalog",
         tab_piano:"Klavier", tab_camara:"Kammermusik", tab_banda:"Blasorchester", tab_orch:"Sinfonieorchester",
         romance_meta:"Klavier solo", romance_desc:"Ein romantisches Werk, das die Eleganz des Walzers mit ausdrucksstarken kantablen Melodien verbindet und eine intime Atmosph\u00e4re voller Liebe und Nostalgie erzeugt.",
@@ -765,19 +964,24 @@
         footer_roles:"Komponist \u00b7 Musikproduzent \u00b7 Fagottist"
       },
       it: {
-        nav_inicio:"Inizio", nav_bio:"Biografia", nav_catalogo:"Catalogo", nav_contacto:"Contatto",
+        nav_inicio:"Inizio", nav_bio:"Biografia", nav_catalogo:"Catalogo", nav_awards:"Premi", nav_contacto:"Contatto",
+        aw_label:"Palmar\u00e8s", aw_title:"Riconoscimenti", aw_finalist:"Finalista", aw_work_label:"Opera presentata",
+        aw1_comp:"Brahms International Music Competition", aw1_cat:"Categoria Compositore",
+        aw1_desc:"Riconoscimento internazionale come finalista con il valzer sinfonico per banda <em>El \u00daltimo Baile</em>, in competizione con compositori di tutto il mondo.",
+        aw2_comp:"Ravel Awards", aw2_cat:"Categoria Compositore",
+        aw2_desc:"Selezionato come finalista ai Ravel Awards con <em>Romance n.\u00a01</em> per pianoforte, premi internazionali che celebrano l\u2019eccellenza compositiva nella tradizione di Maurice Ravel.",
         hero_eyebrow:"Compositore contemporaneo \u00b7 Murcia, Spagna",
         hero_sub:"Compositore, produttore musicale e fagottista spagnolo. La sua opera esplora il rapporto tra tradizione, narrazione e nuove sonorit\u00e0.",
         hero_cta1:"Vedi catalogo", hero_cta2:"Contatto", hero_loc:"Murcia \u00b7 Spagna",
         bio_label:"Sull\u2019artista", bio_title:"Biografia",
-        bio_p1:"<strong>Alejandro L\u00f3pez Nin</strong> \u00e8 nato a Murcia nel 2009. Compositore contemporaneo, produttore musicale e fagottista, ha sviluppato fin da giovane un linguaggio proprio che unisce l\u2019eredit\u00e0 romantica alla sensibilit\u00e0 musicale contemporanea.",
-        bio_p2:"La sua produzione comprende musica per pianoforte, musica da camera e banda sinfonica. In ogni progetto, Alejandro esplora la capacit\u00e0 narrativa della musica.",
-        bio_p3:"Tra le sue opere pi\u00f9 significative: <em>Romance n.\u00a01</em>, <em>Arelia</em>, <em>La Murciana</em> e il valzer sinfonico <em>El \u00daltimo Baile</em>.",
-        fact_birth_l:"Nascita", fact_birth_v:"2009, Murcia, Spagna",
-        fact_disc_l:"Discipline", fact_disc_v:"Composizione \u00b7 Produzione \u00b7 Fagotto",
-        fact_genre_l:"Genere", fact_genre_v:"Musica contemporanea",
-        fact_edu_l:"Formazione", fact_edu_v:"Conservatorio di Musica di Murcia",
-        fact_contact_l:"Contatto",
+        bio_p1:"<strong>Alejandro L\u00f3pez Nin</strong>, artisticamente noto come <strong>Alejandro Nin</strong> (Murcia, Spagna, 2009), \u00e8 un compositore contemporaneo, fagottista e produttore musicale spagnolo. La sua attivit\u00e0 si colloca all\u2019intersezione tra creazione musicale, interpretazione strumentale e produzione sonora, integrando influenze dalla musica classica, dal flamenco e dalle nuove tecnologie.",
+        bio_p2:"Inizi\u00f3 la sua formazione musicale a undici anni studiando fagotto al Conservatorio di Musica di Murcia con <strong>Juan Torres Corona</strong>. La sua esperienza come interprete risveglio\u2019 presto un profondo interesse per la composizione.",
+        bio_p3:"Durante gli studi al <strong>Conservatori Professional de M\u00fasica de Menorca</strong>, sotto la guida di <strong>Enric Rodr\u00edguez-Llorens</strong>, compose <em>El \u00daltimo Baile</em>, la sua prima opera per banda sinfonica.",
+        bio_p4:"La sua produzione comprende le opere per pianoforte <em>Arelia</em>, <em>Romance n.\u00a01</em> e il notturno <em>Alegazia</em>, oltre a <em>La Murciana</em> per ensemble di oboi e fagotti.",
+        bio_p5:"Parallelamente sviluppa progetti di produzione musicale che integrano risorse acustiche e digitali. La sua formazione come fagottista e il legame col flamenco arricchiscono un linguaggio musicale personale.",
+        bio_p6:"Continua ad ampliare il suo catalogo consolidando un\u2019identit\u00e0 artistica propria nella nuova generazione di compositori spagnoli.",
+        alegazia_meta:"Notturno per pianoforte",
+        alegazia_desc:"Un notturno che narra una notte romantica e di passione. L\u2019escrittura densa e sensorialmente espressiva dispiega un mondo sonoro notturno in cui la melodia scorre libera, avvolta in armonie ricche che evocano l\u2019intimit\u00e0 della notte e l\u2019intensit\u00e0 dei sentimenti pi\u00f9 profondi.",
         cat_label:"Opere", cat_title:"Catalogo",
         tab_piano:"Pianoforte", tab_camara:"Musica da camera", tab_banda:"Banda sinfonica", tab_orch:"Orchestra sinfonica",
         romance_meta:"Pianoforte solo", romance_desc:"Un\u2019opera di carattere romantico che unisce l\u2019eleganza del valzer a melodie cantabili di grande espressivit\u00e0, evocando un\u2019atmosfera intima di amore e nostalgia.",
@@ -827,20 +1031,39 @@
     /* ── MOBILE NAV ── */
     var toggle = document.getElementById("nav-toggle");
     var navLinks = document.getElementById("nav-links");
+    function closeNav() {
+      navLinks.classList.remove("open");
+      toggle.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+    function openNav() {
+      navLinks.classList.add("open");
+      toggle.classList.add("open");
+      toggle.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    }
     if (toggle && navLinks) {
       toggle.addEventListener("click", function(){
-        var open = navLinks.classList.toggle("open");
-        toggle.classList.toggle("open", open);
-        document.body.style.overflow = open ? "hidden" : "";
+        if (navLinks.classList.contains("open")) { closeNav(); } else { openNav(); }
       });
+      /* Close on link click */
       var links = navLinks.querySelectorAll("a");
       for (var i=0; i<links.length; i++) {
-        links[i].addEventListener("click", function(){
-          navLinks.classList.remove("open");
-          toggle.classList.remove("open");
-          document.body.style.overflow = "";
-        });
+        links[i].addEventListener("click", function(){ closeNav(); });
       }
+      /* Close on Escape key */
+      document.addEventListener("keydown", function(e){
+        if (e.key === "Escape" && navLinks.classList.contains("open")) { closeNav(); }
+      });
+      /* Close if clicking outside the nav (e.g. on overlay backdrop) */
+      navLinks.addEventListener("click", function(e){
+        if (e.target === navLinks) { closeNav(); }
+      });
     }
 
     /* ── NAV SCROLL ── */
