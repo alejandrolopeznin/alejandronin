@@ -420,6 +420,20 @@
         "inLanguage": "es"
       },
       {
+        "@type": "Book",
+        "@id": "https://alejandronin.com/#libro",
+        "name": "Devuélveme la música",
+        "author": { "@id": "https://alejandronin.com/#person" },
+        "datePublished": "2026",
+        "numberOfPages": 106,
+        "inLanguage": "es",
+        "bookFormat": "https://schema.org/EBook",
+        "genre": ["Ensayo", "Música", "No ficción"],
+        "description": "Primer libro de Alejandro López Nin. Un ensayo íntimo y honesto sobre qué significa escuchar de verdad en una época en que la música lo rodea todo.",
+        "publisher": { "@type": "Organization", "@id": "https://alejandronin.com/#org" },
+        "url": "https://alejandronin.com/#libro"
+      },
+      {
         "@type": "FAQPage",
         "@id": "https://alejandronin.com/#faq",
         "mainEntity": [
@@ -508,7 +522,7 @@
     .skip-link:focus { top: 0; }
 
     /* ── Content visibility (CWV) ── */
-    #biografia, #catalogo, #reconocimientos, #contacto {
+    #biografia, #catalogo, #libro, #prensa, #reconocimientos, #contacto {
       content-visibility: auto;
       contain-intrinsic-size: 0 600px;
     }
@@ -748,6 +762,50 @@
     @media (max-width: 768px) { .press-grid { grid-template-columns: 1fr; gap: 1rem; } .press-portrait { flex-direction: column; gap: 1.5rem; } .press-portrait-img { width: 100%; height: 280px; } }
     @media (max-width: 1024px) and (min-width: 769px) { .press-grid { grid-template-columns: 1fr 1fr; } }
 
+    /* ── BOOK SECTION ── */
+    #libro { background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
+    #libro .section-label { color: var(--gold); }
+    #libro h2 { color: var(--white); }
+    #libro .section-header { border-bottom-color: rgba(255,255,255,0.08); }
+    #libro::before { content: ''; position: absolute; top: -150px; right: -150px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(196,163,90,0.07) 0%, transparent 65%); pointer-events: none; animation: orbPulse 8s ease-in-out infinite; }
+    #libro-stars { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .book-layout { display: grid; grid-template-columns: 1fr 1.8fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; position: relative; z-index: 1; }
+    .book-cover-inner { background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%); border: 1px solid rgba(196,163,90,0.25); padding: 3rem 2.5rem; text-align: center; position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(196,163,90,0.1); transition: transform 0.4s, box-shadow 0.4s; }
+    .book-cover-inner:hover { transform: translateY(-4px); box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 40px rgba(196,163,90,0.1); }
+    .book-cover-inner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(196,163,90,0.06) 0%, transparent 50%); }
+    .book-cover-ornament { width: 40px; height: 1px; background: var(--gold); margin: 0 auto 2rem; opacity: 0.6; }
+    .book-cover-title { font-family: var(--serif); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 300; color: var(--white); line-height: 1.2; letter-spacing: 0.02em; margin-bottom: 0.5rem; position: relative; }
+    .book-cover-subtitle { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; opacity: 0.8; }
+    .book-cover-author { font-family: var(--serif); font-size: 0.95rem; font-weight: 300; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; }
+    .book-cover-edition { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(196,163,90,0.45); margin-top: 2rem; }
+    .book-cover-line { width: 100%; height: 1px; background: linear-gradient(to right, transparent, rgba(196,163,90,0.4), transparent); margin: 1.5rem 0; }
+    .book-pages-count { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.2); margin-top: 1rem; text-align: center; }
+    .book-info { position: relative; z-index: 1; }
+    .book-synopsis { font-size: 1.05rem; color: rgba(255,255,255,0.5); line-height: 1.95; margin-bottom: 2.5rem; }
+    .book-synopsis em { color: var(--gold); font-style: italic; }
+    .book-synopsis strong { color: rgba(255,255,255,0.8); font-weight: 400; }
+    .book-meta-row { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .book-meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .book-meta-label { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    .book-meta-value { font-family: var(--serif); font-size: 1rem; color: rgba(255,255,255,0.7); }
+    .book-read-btn { display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.9rem 2rem; border: 1px solid var(--gold); color: var(--gold); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; background: transparent; position: relative; overflow: hidden; transition: color 0.4s; -webkit-tap-highlight-color: transparent; }
+    .book-read-btn::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateX(-101%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .book-read-btn:hover::before, .book-read-btn.active::before { transform: translateX(0); }
+    .book-read-btn:hover, .book-read-btn.active { color: var(--ink); }
+    .book-read-btn span { position: relative; z-index: 1; display: flex; align-items: center; gap: 0.75rem; }
+    .book-read-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .pdf-viewer-wrap { margin-top: 3rem; position: relative; z-index: 1; display: none; }
+    .pdf-viewer-wrap.open { display: block; }
+    .pdf-viewer-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-bottom: none; }
+    .pdf-viewer-title { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .pdf-viewer-close { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.3); font-size: 1.2rem; padding: 0; transition: color 0.2s; line-height: 1; }
+    .pdf-viewer-close:hover { color: var(--gold); }
+    .pdf-viewer-iframe { width: 100%; height: 80vh; min-height: 600px; border: 1px solid rgba(255,255,255,0.08); display: block; background: #fff; }
+    .pdf-download-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.3s; }
+    .pdf-download-link:hover { color: var(--gold); }
+    .pdf-download-link svg { width: 13px; height: 13px; }
+    @media (max-width: 768px) { .book-layout { grid-template-columns: 1fr; } .book-cover-inner { padding: 2rem 1.5rem; } .pdf-viewer-iframe { height: 60vh; min-height: 400px; } }
+
     /* ── AWARDS ── */
     #reconocimientos { background: var(--ink); color: var(--white); position: relative; overflow: hidden; }
     #reconocimientos .section-label { color: var(--gold); }
@@ -875,6 +933,7 @@
       <li><a href="#inicio" data-i18n="nav_inicio">Inicio</a></li>
       <li><a href="#biografia" data-i18n="nav_bio">Biograf&#237;a</a></li>
       <li><a href="#catalogo" data-i18n="nav_catalogo">Cat&#225;logo</a></li>
+      <li><a href="#libro" data-i18n="nav_book">Libro</a></li>
       <li><a href="#reconocimientos" data-i18n="nav_awards">Reconocimientos</a></li>
       <li><a href="#prensa" data-i18n="nav_press">Prensa</a></li>
       <li><a href="#contacto" data-i18n="nav_contacto">Contacto</a></li>
@@ -1063,6 +1122,68 @@
 
   <div class="gold-line"></div>
 
+  <section id="libro" aria-labelledby="libro-heading">
+    <canvas id="libro-stars" aria-hidden="true"></canvas>
+    <div class="section-header reveal">
+      <span class="section-label" data-i18n="book_label">Primera edici&#243;n</span>
+      <h2 id="libro-heading" data-i18n="book_title">Dev&#250;elveme la m&#250;sica</h2>
+    </div>
+    <div class="book-layout">
+      <div class="book-cover reveal-left">
+        <div class="book-cover-inner">
+          <div class="book-cover-ornament"></div>
+          <div class="book-cover-title" data-i18n="book_cover_title">Dev&#250;elveme<br/>la m&#250;sica</div>
+          <div class="book-cover-line"></div>
+          <div class="book-cover-subtitle" data-i18n="book_cover_sub">Un ensayo sobre la m&#250;sica y quienes la escuchan</div>
+          <div class="book-cover-author">Alejandro L. Nin</div>
+          <div class="book-cover-line"></div>
+          <div class="book-cover-edition" data-i18n="book_edition">Primera edici&#243;n &#183; 2026</div>
+        </div>
+        <div class="book-pages-count" data-i18n="book_pages">106 p&#225;ginas</div>
+      </div>
+      <div class="book-info reveal">
+        <p class="book-synopsis" data-i18n="book_synopsis"><em>Dev&#250;elveme la m&#250;sica</em> es el primer libro de Alejandro Nin. Un ensayo &#237;ntimo y honesto que nace de sus once a&#241;os con un fagot entre las manos y crece hasta convertirse en una reflexi&#243;n sobre <strong>qu&#233; significa escuchar de verdad</strong> en una &#233;poca en que la m&#250;sica lo rodea todo sin que nadie la pida. A trav&#233;s de sus propias experiencias como int&#233;rprete y compositor, Alejandro recorre la historia de la m&#250;sica, las corrientes que la transformaron y el papel que ocupa hoy, entre algoritmos y listas de reproducci&#243;n infinitas, en la vida de las personas.</p>
+        <div class="book-meta-row">
+          <div class="book-meta-item">
+            <span class="book-meta-label" data-i18n="book_genre_l">G&#233;nero</span>
+            <span class="book-meta-value" data-i18n="book_genre_v">Ensayo literario</span>
+          </div>
+          <div class="book-meta-item">
+            <span class="book-meta-label" data-i18n="book_pages_l">P&#225;ginas</span>
+            <span class="book-meta-value">106</span>
+          </div>
+          <div class="book-meta-item">
+            <span class="book-meta-label" data-i18n="book_year_l">A&#241;o</span>
+            <span class="book-meta-value">2026</span>
+          </div>
+          <div class="book-meta-item">
+            <span class="book-meta-label" data-i18n="book_ed_l">Edici&#243;n</span>
+            <span class="book-meta-value" data-i18n="book_ed_v">Primera</span>
+          </div>
+        </div>
+        <button class="book-read-btn" id="btn-read-book" aria-expanded="false" aria-controls="pdf-viewer-section">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <span data-i18n="book_read_btn">Leer el libro</span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="pdf-viewer-wrap" id="pdf-viewer-section">
+      <div class="pdf-viewer-header">
+        <span class="pdf-viewer-title" data-i18n="book_viewer_title">Dev&#250;elveme la m&#250;sica &#8212; Alejandro Nin &#183; Primera edici&#243;n 2026</span>
+        <button class="pdf-viewer-close" id="btn-close-pdf" aria-label="Cerrar visor">&#x2715;</button>
+      </div>
+      <iframe class="pdf-viewer-iframe" id="pdf-iframe" title="Dev&#250;elveme la m&#250;sica &#8212; Alejandro L&#243;pez Nin" aria-label="Visor del libro Dev&#250;elveme la m&#250;sica" src="" allowfullscreen></iframe>
+      <a class="pdf-download-link" id="pdf-download-link" href="" download="Devuelveme-la-musica-Alejandro-Nin.pdf" aria-label="Descargar el libro en PDF">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-i18n="book_download">Descargar PDF</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
   <section id="prensa" aria-labelledby="press-heading">
     <div class="section-header reveal">
       <span class="section-label" data-i18n="press_label">En los medios</span>
@@ -1141,6 +1262,7 @@
     <span class="footer-roles" data-i18n="footer_roles">Compositor &middot; Productor musical &middot; Fagotista</span>
   </footer>
   <script>
+  var PDF_URL = "devuelveme-la-musica.pdf";
   document.addEventListener("DOMContentLoaded", function() {
     "use strict";
 
@@ -1151,7 +1273,7 @@
     var T = {
       es: {
         nav_inicio:"Inicio", nav_bio:"Biograf\u00eda", nav_catalogo:"Cat\u00e1logo", nav_awards:"Reconocimientos", nav_contacto:"Contacto",
-        nav_press:"Prensa", press_label:"En los medios", press_title:"Prensa", press1_title:"Alejandro L\u00f3pez Nin, el joven compositor de ra\u00edces menorquinas que apunta a lo m\u00e1s alto", press2_title:"Alejandro L\u00f3pez Nin, el compositor murciano que conquista los escenarios internacionales", press3_title:"El joven compositor murciano Alejandro Nin alcanza la final de dos prestigiosos concursos internacionales", press_quote:"\u00abContarle al mundo historias a trav\u00e9s de la m\u00fasica es uno de mis mayores prop\u00f3sitos. Quiero <strong>transmitir sentimientos y emociones a trav\u00e9s de las notas</strong>.\u00bb \u2014 Alejandro Nin, entrevistado por <em>Menorca Info</em>, julio 2026", aw_label:"Palmar\u00e9s", aw_title:"Reconocimientos", aw_finalist:"Finalista", aw_work_label:"Obra presentada",
+        nav_book:"Libro", book_label:"Primera edici\u00f3n", book_title:"Dev\u00faelveme la m\u00fasica", book_cover_title:"Dev\u00faelveme<br/>la m\u00fasica", book_cover_sub:"Un ensayo sobre la m\u00fasica y quienes la escuchan", book_edition:"Primera edici\u00f3n \u00b7 2026", book_pages:"106 p\u00e1ginas", book_synopsis:"<em>Dev\u00faelveme la m\u00fasica</em> es el primer libro de Alejandro Nin. Un ensayo \u00edntimo y honesto sobre qu\u00e9 significa escuchar de verdad en una \u00e9poca en que la m\u00fasica lo rodea todo.", book_genre_l:"G\u00e9nero", book_genre_v:"Ensayo literario", book_pages_l:"P\u00e1ginas", book_year_l:"A\u00f1o", book_ed_l:"Edici\u00f3n", book_ed_v:"Primera", book_read_btn:"Leer el libro", book_viewer_title:"Dev\u00faelveme la m\u00fasica \u2014 Alejandro Nin", book_download:"Descargar PDF", nav_press:"Prensa", press_label:"En los medios", press_title:"Prensa", press1_title:"Alejandro L\u00f3pez Nin, el joven compositor de ra\u00edces menorquinas que apunta a lo m\u00e1s alto", press2_title:"Alejandro L\u00f3pez Nin, el compositor murciano que conquista los escenarios internacionales", press3_title:"El joven compositor murciano Alejandro Nin alcanza la final de dos prestigiosos concursos internacionales", press_quote:"\u00abContarle al mundo historias a trav\u00e9s de la m\u00fasica es uno de mis mayores prop\u00f3sitos. Quiero <strong>transmitir sentimientos y emociones a trav\u00e9s de las notas</strong>.\u00bb \u2014 Alejandro Nin, entrevistado por <em>Menorca Info</em>, julio 2026", aw_label:"Palmar\u00e9s", aw_title:"Reconocimientos", aw_finalist:"Finalista", aw_work_label:"Obra presentada",
         aw1_comp:"Brahms International Music Competition", aw1_cat:"Categor\u00eda Compositor",
         aw1_desc:"Reconocimiento internacional como finalista con el vals sinf\u00f3nico para banda <em>El \u00daltimo Baile</em>, compitiendo entre compositores de todo el mundo en uno de los certámenes más prestigiosos dedicados al legado de Johannes Brahms.",
         aw2_comp:"Ravel Awards", aw2_cat:"Categor\u00eda Compositor",
@@ -1187,7 +1309,7 @@
       },
       en: {
         nav_inicio:"Home", nav_bio:"Biography", nav_catalogo:"Catalogue", nav_awards:"Awards", nav_contacto:"Contact",
-        nav_press:"Press", press_label:"In the media", press_title:"Press", press1_title:"Alejandro L\u00f3pez Nin, the young composer with Menorcan roots aiming for the top", press2_title:"Alejandro L\u00f3pez Nin, the Murcian composer conquering international stages", press3_title:"Young Murcian composer Alejandro Nin reaches the final of two prestigious international competitions", press_quote:"\u201cTelling the world stories through music is one of my greatest purposes. I want to <strong>convey feelings and emotions through the notes</strong>.\u201d \u2014 Alejandro Nin, interviewed by <em>Menorca Info</em>, July 2026", aw_label:"Honours", aw_title:"Recognition", aw_finalist:"Finalist", aw_work_label:"Submitted work",
+        nav_book:"Book", book_label:"First edition", book_title:"Give me back the music", book_cover_title:"Give me back<br/>the music", book_cover_sub:"An essay on music and those who listen", book_edition:"First edition \u00b7 2026", book_pages:"106 pages", book_synopsis:"<em>Give Me Back the Music</em> is Alejandro Nin's first book. An honest, intimate essay on what it truly means to listen in an age where music surrounds everything.", book_genre_l:"Genre", book_genre_v:"Literary essay", book_pages_l:"Pages", book_year_l:"Year", book_ed_l:"Edition", book_ed_v:"First", book_read_btn:"Read the book", book_viewer_title:"Give me back the music \u2014 Alejandro Nin", book_download:"Download PDF", nav_press:"Press", press_label:"In the media", press_title:"Press", press1_title:"Alejandro L\u00f3pez Nin, the young composer with Menorcan roots aiming for the top", press2_title:"Alejandro L\u00f3pez Nin, the Murcian composer conquering international stages", press3_title:"Young Murcian composer Alejandro Nin reaches the final of two prestigious international competitions", press_quote:"\u201cTelling the world stories through music is one of my greatest purposes. I want to <strong>convey feelings and emotions through the notes</strong>.\u201d \u2014 Alejandro Nin, interviewed by <em>Menorca Info</em>, July 2026", aw_label:"Honours", aw_title:"Recognition", aw_finalist:"Finalist", aw_work_label:"Submitted work",
         aw1_comp:"Brahms International Music Competition", aw1_cat:"Composer Category",
         aw1_desc:"International recognition as a finalist with the symphonic waltz for wind band <em>El \u00daltimo Baile</em>, competing among composers from around the world at one of the most prestigious competitions dedicated to the legacy of Johannes Brahms.",
         aw2_comp:"Ravel Awards", aw2_cat:"Composer Category",
@@ -1223,7 +1345,7 @@
       },
       fr: {
         nav_inicio:"Accueil", nav_bio:"Biographie", nav_catalogo:"Catalogue", nav_awards:"R\u00e9compenses", nav_contacto:"Contact",
-        nav_press:"Presse", press_label:"Dans les m\u00e9dias", press_title:"Presse", press1_title:"Alejandro L\u00f3pez Nin, le jeune compositeur aux racines minorquines qui vise les sommets", press2_title:"Alejandro L\u00f3pez Nin, le compositeur murcien qui conqu\u00e8re les sc\u00e8nes internationales", press3_title:"Le jeune compositeur Alejandro Nin en finale de deux prestigieux concours internationaux", press_quote:"\u00abRaconter des histoires au monde \u00e0 travers la musique est l\u2019un de mes plus grands objectifs.\u00bb \u2014 Alejandro Nin, juillet 2026", aw_label:"Palmar\u00e8s", aw_title:"Distinctions", aw_finalist:"Finaliste", aw_work_label:"Œuvre pr\u00e9sent\u00e9e",
+        nav_book:"Livre", book_label:"Premi\u00e8re \u00e9dition", book_title:"Rends-moi la musique", book_cover_title:"Rends-moi<br/>la musique", book_cover_sub:"Un essai sur la musique et ceux qui l'\u00e9coutent", book_edition:"Premi\u00e8re \u00e9dition \u00b7 2026", book_pages:"106 pages", book_synopsis:"<em>Rends-moi la musique</em> est le premier livre d'Alejandro Nin. Un essai intime sur ce que signifie vraiment \u00e9couter.", book_genre_l:"Genre", book_genre_v:"Essai litt\u00e9raire", book_pages_l:"Pages", book_year_l:"Ann\u00e9e", book_ed_l:"\u00c9dition", book_ed_v:"Premi\u00e8re", book_read_btn:"Lire le livre", book_viewer_title:"Rends-moi la musique \u2014 Alejandro Nin", book_download:"T\u00e9l\u00e9charger le PDF", nav_press:"Presse", press_label:"Dans les m\u00e9dias", press_title:"Presse", press1_title:"Alejandro L\u00f3pez Nin, le jeune compositeur aux racines minorquines qui vise les sommets", press2_title:"Alejandro L\u00f3pez Nin, le compositeur murcien qui conqu\u00e8re les sc\u00e8nes internationales", press3_title:"Le jeune compositeur Alejandro Nin en finale de deux prestigieux concours internationaux", press_quote:"\u00abRaconter des histoires au monde \u00e0 travers la musique est l\u2019un de mes plus grands objectifs.\u00bb \u2014 Alejandro Nin, juillet 2026", aw_label:"Palmar\u00e8s", aw_title:"Distinctions", aw_finalist:"Finaliste", aw_work_label:"Œuvre pr\u00e9sent\u00e9e",
         aw1_comp:"Brahms International Music Competition", aw1_cat:"Cat\u00e9gorie Compositeur",
         aw1_desc:"Reconnaissance internationale en tant que finaliste avec la valse symphonique pour orchestre d\u2019harmonie <em>El \u00daltimo Baile</em>, parmi des compositeurs du monde entier.",
         aw2_comp:"Ravel Awards", aw2_cat:"Cat\u00e9gorie Compositeur",
@@ -1259,7 +1381,7 @@
       },
       de: {
         nav_inicio:"Start", nav_bio:"Biografie", nav_catalogo:"Katalog", nav_awards:"Auszeichnungen", nav_contacto:"Kontakt",
-        nav_press:"Presse", press_label:"In den Medien", press_title:"Presse", press1_title:"Alejandro L\u00f3pez Nin, der junge Komponist mit menorquinischen Wurzeln strebt nach oben", press2_title:"Alejandro L\u00f3pez Nin, der Murcianer Komponist erobert internationale B\u00fchnen", press3_title:"Junger Komponist Alejandro Nin erreicht das Finale zweier renommierter Wettbewerbe", press_quote:"\u201eDer Welt Geschichten durch Musik zu erz\u00e4hlen ist eines meiner gr\u00f6\u00dften Ziele.\u201c \u2014 Alejandro Nin, Juli 2026", aw_label:"Ehrungen", aw_title:"Auszeichnungen", aw_finalist:"Finalist", aw_work_label:"Eingereichte Komposition",
+        nav_book:"Buch", book_label:"Erste Ausgabe", book_title:"Gib mir die Musik zur\u00fcck", book_cover_title:"Gib mir die Musik<br/>zur\u00fcck", book_cover_sub:"Ein Essay \u00fcber Musik und die, die zuh\u00f6ren", book_edition:"Erste Ausgabe \u00b7 2026", book_pages:"106 Seiten", book_synopsis:"<em>Gib mir die Musik zur\u00fcck</em> ist Alejandro Nins erstes Buch. Ein ehrlicher Essay dar\u00fcber, was es bedeutet, wirklich zuzuh\u00f6ren.", book_genre_l:"Genre", book_genre_v:"Literarischer Essay", book_pages_l:"Seiten", book_year_l:"Jahr", book_ed_l:"Ausgabe", book_ed_v:"Erste", book_read_btn:"Buch lesen", book_viewer_title:"Gib mir die Musik zur\u00fcck \u2014 Alejandro Nin", book_download:"PDF herunterladen", nav_press:"Presse", press_label:"In den Medien", press_title:"Presse", press1_title:"Alejandro L\u00f3pez Nin, der junge Komponist mit menorquinischen Wurzeln strebt nach oben", press2_title:"Alejandro L\u00f3pez Nin, der Murcianer Komponist erobert internationale B\u00fchnen", press3_title:"Junger Komponist Alejandro Nin erreicht das Finale zweier renommierter Wettbewerbe", press_quote:"\u201eDer Welt Geschichten durch Musik zu erz\u00e4hlen ist eines meiner gr\u00f6\u00dften Ziele.\u201c \u2014 Alejandro Nin, Juli 2026", aw_label:"Ehrungen", aw_title:"Auszeichnungen", aw_finalist:"Finalist", aw_work_label:"Eingereichte Komposition",
         aw1_comp:"Brahms International Music Competition", aw1_cat:"Kategorie Komponist",
         aw1_desc:"Internationale Anerkennung als Finalist mit dem sinfonischen Walzer f\u00fcr Blasorchester <em>El \u00daltimo Baile</em>, im Wettbewerb mit Komponisten aus aller Welt.",
         aw2_comp:"Ravel Awards", aw2_cat:"Kategorie Komponist",
@@ -1295,7 +1417,7 @@
       },
       it: {
         nav_inicio:"Inizio", nav_bio:"Biografia", nav_catalogo:"Catalogo", nav_awards:"Premi", nav_contacto:"Contatto",
-        nav_press:"Stampa", press_label:"Sui media", press_title:"Stampa", press1_title:"Alejandro L\u00f3pez Nin, il giovane compositore con radici minorchine punta in alto", press2_title:"Alejandro L\u00f3pez Nin, il compositore murciano conquista i palcoscenici internazionali", press3_title:"Il giovane compositore Alejandro Nin raggiunge la finale di due prestigiosi concorsi internazionali", press_quote:"\u00abRaccontare storie al mondo attraverso la musica \u00e8 uno dei miei obiettivi principali.\u00bb \u2014 Alejandro Nin, luglio 2026", aw_label:"Palmar\u00e8s", aw_title:"Riconoscimenti", aw_finalist:"Finalista", aw_work_label:"Opera presentata",
+        nav_book:"Libro", book_label:"Prima edizione", book_title:"Restituiscimi la musica", book_cover_title:"Restituiscimi<br/>la musica", book_cover_sub:"Un saggio sulla musica e chi la ascolta", book_edition:"Prima edizione \u00b7 2026", book_pages:"106 pagine", book_synopsis:"<em>Restituiscimi la musica</em> \u00e8 il primo libro di Alejandro Nin. Un saggio intimo su cosa significhi davvero ascoltare.", book_genre_l:"Genere", book_genre_v:"Saggio letterario", book_pages_l:"Pagine", book_year_l:"Anno", book_ed_l:"Edizione", book_ed_v:"Prima", book_read_btn:"Leggi il libro", book_viewer_title:"Restituiscimi la musica \u2014 Alejandro Nin", book_download:"Scarica PDF", nav_press:"Stampa", press_label:"Sui media", press_title:"Stampa", press1_title:"Alejandro L\u00f3pez Nin, il giovane compositore con radici minorchine punta in alto", press2_title:"Alejandro L\u00f3pez Nin, il compositore murciano conquista i palcoscenici internazionali", press3_title:"Il giovane compositore Alejandro Nin raggiunge la finale di due prestigiosi concorsi internazionali", press_quote:"\u00abRaccontare storie al mondo attraverso la musica \u00e8 uno dei miei obiettivi principali.\u00bb \u2014 Alejandro Nin, luglio 2026", aw_label:"Palmar\u00e8s", aw_title:"Riconoscimenti", aw_finalist:"Finalista", aw_work_label:"Opera presentata",
         aw1_comp:"Brahms International Music Competition", aw1_cat:"Categoria Compositore",
         aw1_desc:"Riconoscimento internazionale come finalista con il valzer sinfonico per banda <em>El \u00daltimo Baile</em>, in competizione con compositori di tutto il mondo.",
         aw2_comp:"Ravel Awards", aw2_cat:"Categoria Compositore",
@@ -1396,6 +1518,36 @@
       });
     }
 
+    /* ── BOOK PDF VIEWER ── */
+    var btnRead = document.getElementById("btn-read-book");
+    var btnClose = document.getElementById("btn-close-pdf");
+    var pdfWrap = document.getElementById("pdf-viewer-section");
+    var pdfIframe = document.getElementById("pdf-iframe");
+    var pdfDlLink = document.getElementById("pdf-download-link");
+    var pdfLoaded = false;
+    if (btnRead && pdfWrap) {
+      if (pdfDlLink) { pdfDlLink.href = PDF_URL; }
+      btnRead.addEventListener("click", function() {
+        var isOpen = pdfWrap.classList.toggle("open");
+        btnRead.classList.toggle("active", isOpen);
+        btnRead.setAttribute("aria-expanded", String(isOpen));
+        if (isOpen && !pdfLoaded) {
+          // Primary: native browser PDF viewer via direct URL
+          pdfIframe.src = PDF_URL;
+          pdfLoaded = true;
+        }
+        if (isOpen) setTimeout(function() { pdfWrap.scrollIntoView({ behavior: "smooth", block: "start" }); }, 120);
+      });
+      if (btnClose) {
+        btnClose.addEventListener("click", function() {
+          pdfWrap.classList.remove("open");
+          btnRead.classList.remove("active");
+          btnRead.setAttribute("aria-expanded", "false");
+          btnRead.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+      }
+    }
+
     /* ── NAV SCROLL ── */
     var nav = document.getElementById("main-nav");
     window.addEventListener("scroll", function(){ nav.classList.toggle("scrolled", window.scrollY > 40); }, {passive:true});
@@ -1487,6 +1639,17 @@
       requestAnimationFrame(drawHero);
     }
     if(heroCtx) drawHero();
+
+    /* Book stars */
+    var lbCv = document.getElementById("libro-stars");
+    if (lbCv) {
+      var lbCx = lbCv.getContext("2d");
+      function resizeLb() { var s=document.getElementById("libro"); lbCv.width=s.offsetWidth; lbCv.height=s.offsetHeight; }
+      resizeLb(); window.addEventListener("resize", resizeLb, {passive:true});
+      var LBS = Array.from({length:55},function(){return{x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.2,base:Math.random()*0.18+0.04,phase:Math.random()*Math.PI*2,speed:Math.random()*0.001+0.0003,gold:Math.random()<0.25};});
+      var lbt=0;
+      (function dlb(){lbt+=0.016;var lW=lbCv.width,lH=lbCv.height;lbCx.clearRect(0,0,lW,lH);LBS.forEach(function(s){var a=s.base+Math.sin(lbt*s.speed*2*Math.PI*60+s.phase)*(s.base*0.7);var sx=s.x*lW,sy=s.y*lH;if(s.r>0.8){var g=lbCx.createRadialGradient(sx,sy,0,sx,sy,s.r*5);g.addColorStop(0,s.gold?"rgba(196,163,90,"+a*0.6+")":"rgba(180,190,255,"+a*0.25+")");g.addColorStop(1,"transparent");lbCx.beginPath();lbCx.arc(sx,sy,s.r*5,0,Math.PI*2);lbCx.fillStyle=g;lbCx.fill();}lbCx.beginPath();lbCx.arc(sx,sy,s.r,0,Math.PI*2);lbCx.fillStyle=s.gold?"rgba(210,175,95,"+a+")":"rgba(200,210,255,"+a+")";lbCx.fill();});requestAnimationFrame(dlb);})();
+    }
 
     /* Contact stars */
     var ctCanvas=document.getElementById("contact-stars");
